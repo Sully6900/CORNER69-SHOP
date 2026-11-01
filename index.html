@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Catalogue de démonstration - remplacez ce texte." />
+  <title>Atelier Nova - Catalogue de démonstration</title>
+  <link rel="icon" href="assets/logo.svg" />
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="topbar">
+    <a href="#" class="brand"><img src="assets/logo.svg" alt="Logo de la boutique" /><span id="shopName">Atelier Nova</span></a>
+    <nav>
+      <a href="#video">Vidéo</a><a href="#catalogue">Catalogue</a><a href="#avis">Avis</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Ouvrir le panier">🛒 <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="badge">NOUVELLE COLLECTION</p>
+        <h1>Un catalogue clair.<br /><em>Une expérience fluide.</em></h1>
+        <p class="lead">Remplacez ce texte par une présentation courte de votre activité légale.</p>
+        <a href="#catalogue" class="btn">Découvrir le catalogue</a>
+      </div>
+      <img class="hero-logo" src="assets/logo.svg" alt="Logo de la boutique" />
+    </section>
+
+    <section id="video" class="section">
+      <h2 id="videoTitle">Vidéo</h2>
+      <div class="player" id="player"></div>
+    </section>
+
+    <section id="catalogue" class="section">
+      <h2>Catalogue</h2>
+      <div class="filters">
+        <label>Rechercher <input type="search" id="search" placeholder="Nom du produit…" /></label>
+        <label>Catégorie <select id="category"><option value="">Toutes les catégories</option></select></label>
+        <label>Trier
+          <select id="sort">
+            <option value="featured">À la une</option>
+            <option value="asc">Prix croissant</option>
+            <option value="desc">Prix décroissant</option>
+            <option value="name">Nom A-Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="avis" class="section">
+      <h2>Avis</h2>
+      <p class="muted">Les avis ci-dessous sont des exemples clairement identifiés. Ne publiez que des avis authentiques et vérifiables.</p>
+      <div class="reviews" id="reviews"></div>
+      <form class="card form" id="reviewForm">
+        <h3>Ajouter un avis local</h3>
+        <label>Prénom <input name="name" required maxlength="40" /></label>
+        <label>Note <select name="rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+        <label>Commentaire <textarea name="text" required maxlength="500"></textarea></label>
+        <button class="btn" type="submit">Ajouter sur cet appareil</button>
+      </form>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card">
+        <h3>Une question ?</h3>
+        <p class="muted">Remplacez ces coordonnées dans products.js.</p>
+        <p><a id="email" href="#"></a></p>
+        <p id="phone"></p>
+        <p id="address"></p>
+      </div>
+    </section>
+
+    <section id="legal" class="section">
+      <h2>Informations légales</h2>
+      <div class="legal">
+        <details class="card"><summary>À compléter avant publication</summary><p>Raison sociale, forme juridique, capital, adresse, SIREN/SIRET, RCS, numéro de TVA, directeur de publication, hébergeur, moyens de contact.</p></details>
+        <details class="card"><summary>Conditions de vente</summary><p>Ajoutez vos prix TTC, frais et délais de livraison, modalités de paiement, droit de rétractation, garanties, médiation de la consommation et procédure de réclamation.</p></details>
+        <details class="card"><summary>Confidentialité</summary><p>Expliquez quelles données sont collectées, pourquoi, pendant combien de temps, qui y accède et comment exercer les droits applicables. N'ajoutez aucun outil de suivi sans information et consentement lorsque celui-ci est requis.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Atelier Nova — Catalogue de démonstration</footer>
+
+  <!-- Panier -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="cart" aria-hidden="true">
+    <div class="drawer-head"><h2>Mon panier</h2><button class="icon" data-close aria-label="Fermer">✕</button></div>
+    <div id="cartItems"></div>
+    <p class="total">Total estimé <strong id="cartTotal">0,00 EUR</strong></p>
+    <button class="btn ghost" data-close>Continuer mes achats</button>
+    <button class="btn" id="toOrder">Continuer</button>
+  </aside>
+
+  <!-- Commande -->
+  <dialog id="orderDialog">
+    <form method="dialog" id="orderForm" class="form">
+      <div class="drawer-head"><h2>Demande de commande</h2><button class="icon" value="cancel" formnovalidate aria-label="Fermer">✕</button></div>
+      <p class="muted">Démonstration sans paiement. Connectez un service conforme et publiez vos conditions de vente avant toute mise en production.</p>
+      <label>Nom complet <input name="fullname" required /></label>
+      <label>Adresse e-mail <input type="email" name="email" required /></label>
+      <label>Téléphone <input type="tel" name="phone" /></label>
+      <label>Adresse de livraison <textarea name="address"></textarea></label>
+      <label>Mode de livraison <select name="shipping"><option>Livraison standard</option><option>Retrait sur place</option></select></label>
+      <label>Message <textarea name="message"></textarea></label>
+      <label class="check"><input type="checkbox" required /> J'accepte que mes informations soient utilisées pour traiter cette demande.</label>
+      <p class="total">Total estimé <strong id="orderTotal">0,00 EUR</strong></p>
+      <button class="btn" id="submitOrder" type="button">Préparer la demande</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
