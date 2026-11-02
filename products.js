@@ -3,9 +3,9 @@
    ========================================================= */
 
 const SHOP = {
-  name: "Atelier Nova",
-  email: "contact@exemple.fr",
-  phone: "+33 0 00 00 00 00",
+  name: "LA BOUTIQUE DU CORNER",
+  contact: "contact@exemple.fr",
+  whatsapp: "+33 0 00 00 00 00",
   address: "Adresse à compléter",
   currency: "EUR"
 };
