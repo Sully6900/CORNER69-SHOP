@@ -3,7 +3,7 @@
    ========================================================= */
 
 const SHOP = {
-  name: "Corner69 Shop",
+  name: "LA BOUTIQUE DU CORNER",
   currency: "EUR"
 };
 
