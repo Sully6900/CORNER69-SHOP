@@ -4,7 +4,7 @@
 
 const SHOP = {
   name: "LA BOUTIQUE DU CORNER",
-  contact: "contact@exemple.fr",
+  réseaux: "https://t.me/+H15PSwqVM1o2ZWZk",
   whatsapp: "+33 0 00 00 00 00",
   address: "Adresse à compléter",
   currency: "EUR"
